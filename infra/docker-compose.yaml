@@ -10,7 +10,7 @@ services:
       - ./.env
 
   web:
-    image: dev-ops/yamdb_final:latest
+    image: egorcoders/yamdb_final:latest
     restart: always
     volumes:
       - static_value:/app/static/
