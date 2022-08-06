@@ -22,7 +22,7 @@ INSTALLED_APPS = [
 
     'users',
     'reviews',
-    'api',
+    'api'
 ]
 
 MIDDLEWARE = [
