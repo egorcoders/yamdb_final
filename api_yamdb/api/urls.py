@@ -1,8 +1,6 @@
-from django.urls import include, path
-from rest_framework import routers
-
-from users.views import UserAPIView
-
+from django.urls import include, path  # isort:skip
+from rest_framework import routers  # isort:skip
+from users.views import UserAPIView  # isort:skip
 from api.views import (CategoryViewSet, CommentViewSet, GenreViewSet,
                        ReviewViewSet, TitleViewSet)
 
