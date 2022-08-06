@@ -1,9 +1,9 @@
+from django.db.models import Avg
 from rest_framework import serializers
+
+from api_yamdb.settings import START_YEAR
 from reviews.models import (Category, Comments, Genre, Review, Title,
                             current_year)
-
-from django.db.models import Avg
-from api_yamdb.settings import START_YEAR
 
 
 class ReviewSerializer(serializers.ModelSerializer):

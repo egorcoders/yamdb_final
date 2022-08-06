@@ -1,7 +1,8 @@
-from django_filters.rest_framework import DjangoFilterBackend
 from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, permissions, viewsets
 from rest_framework.pagination import LimitOffsetPagination
+
 from api.filters import TitleFilter
 from api.mixins import MixinViewSet
 from api.permissions import (IsAdminOrReadOnly,
@@ -21,9 +22,9 @@ class ReviewViewSet(viewsets.ModelViewSet):
     pagination_class = LimitOffsetPagination
 
     def get_queryset(self):
-        title = get_object_or_404(Title, pk=self.kwargs.get('title_id'))
-        new_queryset = title.reviews.all()
-        return new_queryset
+        return get_object_or_404(
+            Title, pk=self.kwargs.get('title_id')
+        ).reviews.all()
 
     def perform_create(self, serializer):
         title = get_object_or_404(Title, pk=self.kwargs.get('title_id'))

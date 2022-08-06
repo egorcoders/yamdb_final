@@ -1,6 +1,7 @@
 import uuid
 from smtplib import SMTPException
 from typing import Dict
+
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
