@@ -1,18 +1,3 @@
-# flake8 and pytest testing
-[flake8]
-ignore =
-    W503,
-    F811,
-    R504
-exclude =
-    tests/,
-    */migrations/,
-    venv/,
-    env/
-per-file-ignores =
-    */settings.py:E501
-max-complexity = 10 
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -161,7 +146,6 @@ dmypy.json
 .mypy_cache
 
 # папки со статикой и медиа
-static/
+# static/
 posts/static/
 media/
-
