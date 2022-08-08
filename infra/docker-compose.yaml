@@ -33,5 +33,7 @@ services:
       - web
 
 volumes:
+
   static_value:
+
   media_value:
