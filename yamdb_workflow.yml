@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   tests:
-    name:  Testing with flake8 and django 
+    name:  Testing with flake8  and django 
     runs-on: ubuntu-latest
 
     steps:
