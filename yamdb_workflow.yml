@@ -58,9 +58,12 @@ jobs:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
+          host: 130.193.52.102
+          username: egor--boev
           key: ${{ secrets.SSH_KEY }}
+          # host: ${{ secrets.HOST }}
+          # username: ${{ secrets.USER }}
+          # key: ${{ secrets.SSH_KEY }}
           # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             sudo docker-compose stop
