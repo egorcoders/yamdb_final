@@ -59,25 +59,21 @@ jobs:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-          host: 130.193.52.102
-          username: egor--boev
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          # host: ${{ secrets.HOST }}
-          # username: ${{ secrets.USER }}
-          # key: ${{ secrets.SSH_KEY }}
-          # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             sudo docker-compose stop
             sudo docker-compose rm web
             rm .env
             touch .env
-            # echo DB_ENGINE=django.db.backends.postgresql >> .env
-            echo DB_NAME=postgres >> .env
-            echo POSTGRES_USER=postgres >> .env
+            # echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
+            echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
             echo POSTGRES_PASSWORD=aaa7bbb7 >> .env
-            echo DB_HOST=db >> .env
-            echo DB_PORT=5432 >> .env
-            sudo docker-compose up 
+            echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+            echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+            sudo docker-compose up -d
   send_message:
     name: Sending message to Telegram
     runs-on: ubuntu-latest
