@@ -7,9 +7,9 @@ services:
       - /var/lib/postgresql/data/
     env_file:
       - ./.env
-
+  
   web:
-    image: egorcoders/yamdb_final:latest
+    image: egorcoders/api_yamdb:v2
     restart: always
     volumes:
       - static_value:/app/static/
@@ -18,10 +18,9 @@ services:
       - db
     env_file:
       - ./.env
-
+  
   nginx:
     image: nginx:1.21.3-alpine
-    restart: always
     ports:
       - "80:80"
     volumes:
@@ -32,6 +31,5 @@ services:
       - web
 
 volumes:
-
   static_value:
   media_value:
