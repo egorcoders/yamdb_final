@@ -16,6 +16,7 @@ services:
       - media_value:/app/media/
     depends_on:
       - db
+    
     env_file:
       - ./.env
   
