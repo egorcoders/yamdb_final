@@ -9,100 +9,100 @@
 
 ## Описание
 
-Проект **YaMDb** собирает отзывы пользователей на произведения из категорий: «Книги», «Фильмы», «Музыка».
+Проект `YaMDb` собирает отзывы пользователей на произведения из категорий: «Книги», «Фильмы», «Музыка».
 
 ## Функционал
 
-- Произведения делятся на категории: «Книги», «Фильмы», «Музыка». Список категорий может быть расширен администратором;
-- Сами произведения в YaMDb не хранятся, здесь нельзя посмотреть фильм или послушать музыку;
-- В каждой категории есть произведения: книги, фильмы или музыка. Например, в категории «Книги» могут быть произведения «Винни-Пух и все-все-все» и «Марсианские хроники», а в категории «Музыка» — песня «Давеча» группы «Насекомые» и вторая сюита Баха;
+- Произведения делятся на категории. Список категорий может быть расширен администратором;
+- Произведения, фильмы и музыка не хранятся в приложении;
+- В каждой категории есть произведения: книги, фильмы или музыка;
 - Произведению может быть присвоен жанр из списка предустановленных. Новые жанры может создавать только администратор;
-- Благодарные или возмущённые пользователи оставляют к произведениям текстовые отзывы и ставят произведению оценку в диапазоне от одного до десяти; из пользовательских оценок формируется усреднённая оценка произведения — рейтинг. На одно произведение пользователь может оставить только один отзыв.
+- Пользователи могут оставлять отзывы и ставить оценку произведениям. Из пользовательских оценок формируется рейтинг. На одно произведение можно оставить только один отзыв.
 
 ## Установка
 
-Клонировать репозиторий:
+1. Клонировать репозиторий:
 
-```python
-git clone https://github.com/egorcoders/yamdb_final.git
-```
+    ```python
+    git clone https://github.com/egorcoders/yamdb_final.git
+    ```
 
-Создать `.env` файл на уровне с файлом `docker-compose.yaml` в директории infra с указаниме данных:
+2. Создать `.env` файл на уровне с файлом `docker-compose.yaml` в директории infra с указаниме данных:
 
-- SECRET_KEY - секретный ключ Django;
-- DB_ENGINE - движок базы данных (БД) postgresql: `django.db.backends.postgresql`;
-- DB_NAME - имя БД: `postgres`;
-- POSTGRES_USER - пользователь БД: `postgres`;
-- POSTGRES_PASSWORD - пароль рользователя БД: `postgres`;
-- DB_HOST - адрес удалённого сервера БД, по умолчанию: `db`;
-- DB_PORT - порт сервера базы данных: `5432`;
+    - SECRET_KEY - секретный ключ Django;
+    - DB_ENGINE - движок базы данных (БД) postgresql: `django.db.backends.postgresql`;
+    - DB_NAME - имя БД: `postgres`;
+    - POSTGRES_USER - пользователь БД: `postgres`;
+    - POSTGRES_PASSWORD - пароль рользователя БД: `postgres`;
+    - DB_HOST - адрес удалённого сервера БД, по умолчанию: `db`;
+    - DB_PORT - порт сервера базы данных: `5432`;
 
-Создать и активировать виртуальное пространство, установить зависимости и запустить тесты:
+3. Создать и активировать виртуальное пространство, установить зависимости и запустить тесты:
 
-Для Windows:
+    Для Windows:
 
-```python
-cd yamdb_final
-python -m venv venv
-source venv/Scripts/activate
-cd api_yamdb
-pip install -r requirements.txt
-cd ..
-pytest
-```
+    ```python
+    cd yamdb_final
+    python -m venv venv
+    source venv/Scripts/activate
+    cd api_yamdb
+    pip install -r requirements.txt
+    cd ..
+    pytest
+    ```
 
-Для Mac/Linux:
+    Для Mac/Linux:
 
-```python
-cd yamdb_final
-python3 -m venv venv
-source venv/bin/activate
-cd api_yamdb
-pip install -r requirements.txt
-cd ..
-pytest
-```
+    ```python
+    cd yamdb_final
+    python3 -m venv venv
+    source venv/bin/activate
+    cd api_yamdb
+    pip install -r requirements.txt
+    cd ..
+    pytest
+    ```
 
-Запустить контейнер Docker:
+4. Запустить контейнер Docker:
 
-- Проверить статус Docker:
+    - Проверить статус Docker:
 
-```python
-docker --version
-```
+    ```python
+    docker --version
+    ```
 
-- Запустить docker-compose:
+    - Запустить docker-compose:
 
-```python
-cd infra/
-docker-compose up -d
-```
+    ```python
+    cd infra/
+    docker-compose up -d
+    ```
 
-Выполнить миграции, создать суперпользователя и мигрировать статику:
+5. Выполнить миграции, создать суперпользователя и мигрировать статику:
 
-```python
-docker-compose exec web python manage.py migrate
-docker-compose exec web python manage.py createsuperuser
-docker-compose exec web python manage.py collectstatic --no-input
-```
+    ```python
+    docker-compose exec web python manage.py migrate
+    docker-compose exec web python manage.py createsuperuser
+    docker-compose exec web python manage.py collectstatic --no-input
+    ```
 
-Для запуска в виртуальном окружении, после создания и активации виртуального пространства, установки зависимостей, запустить проект локально:
+6. Для запуска в виртуальном окружении, после создания и активации виртуального пространства, установки зависимостей, запустить проект локально:
 
-Для Windows:
+    Для Windows:
 
-```python
-python manage.py runserver
-```
+    ```python
+    python manage.py runserver
+    ```
 
-Для Mac/Linux:
+    Для Mac/Linux:
 
-```python
-python3 manage.py runserver
-```
+    ```python
+    python3 manage.py runserver
+    ```
 
-Проверить доступность сервиса:
+7. Проверить доступность сервиса:
 
-```python
-http://localhost/admin
-http://51.250.80.244/admin
-```
+    ```python
+    http://localhost/admin
+    http://51.250.80.244/admin
+    ```
