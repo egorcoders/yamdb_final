@@ -1,9 +1,8 @@
 # Проект YaMDb
 
-![example workflow](https://github.com/egorcoders/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 [![Python](https://img.shields.io/badge/-Python-464641?style=flat-square&logo=Python)](https://www.python.org/)
-[![pytest](https://img.shields.io/badge/-pytest-464646?style=flat-square&logo=pytest)](https://docs.pytest.org/en/6.2.x/)
 [![Django](https://img.shields.io/badge/-Django-464646?style=flat-square&logo=Django)](https://www.djangoproject.com/)
+[![Pytest](https://img.shields.io/badge/-Pytest-464646?style=flat-square&logo=pytest)](https://docs.pytest.org/en/6.2.x/)
 
 Яндекс Практикум. Проект 16-го спринта: CI и CD проекта api_yamdb.
 
